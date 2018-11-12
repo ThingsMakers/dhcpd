@@ -1,0 +1,13 @@
+### DOCKER BUILD ###
+
+docker image build -t ehrnjic/dhcpd:1.0 .
+
+### DOCKER RUN ###
+
+docker run -d \
+--network=host \
+--name dhcpd \
+-v /docker-vol/dhcpd/conf:/etc/dhcp/conf \
+-v /docker-vol/dhcpd/leases:/etc/dhcp/leases \
+--restart=always \
+ehrnjic/dhcpd:1.0
